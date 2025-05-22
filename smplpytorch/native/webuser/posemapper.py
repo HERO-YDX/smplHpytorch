@@ -25,7 +25,26 @@ def lrotmin(p):
 
 
 def posemap(s):
-    if s == 'lrotmin':
+    original_s_for_error_msg = str(s)
+    original_type_for_error_msg = type(s)
+
+    processed_s = s
+
+    if isinstance(processed_s, np.ndarray):
+        if processed_s.size == 1:
+            processed_s = processed_s.item()
+        else:
+            pass
+
+    s_str = processed_s
+    if isinstance(s_str, np.bytes_):
+        s_str = s_str.decode('utf-8')
+    elif isinstance(s_str, bytes):
+        s_str = s_str.decode('utf-8')
+
+    if s_str == 'lrotmin':
         return lrotmin
     else:
-        raise Exception('Unknown posemapping: %s' % (str(s),))
+        raise Exception('Unknown posemapping: %s (original type: %s, processed as type: %s, final string form: %s)' %
+                        (original_s_for_error_msg, original_type_for_error_msg, type(processed_s), str(s_str)))
+

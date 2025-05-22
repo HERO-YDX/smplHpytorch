@@ -1,5 +1,9 @@
-SMPL layer for PyTorch
-=======
+SMPL-H layer for PyTorch
+=============================
+
+Based on the work of gulvarol, this adds support for SMPL-H.
+
+=============================
 
 [SMPL](http://smpl.is.tue.mpg.de) human body [\[1\]](#references) layer for [PyTorch](https://pytorch.org/) (tested with v0.4 and v1.x)
 is a differentiable PyTorch layer that deterministically maps from pose and shape parameters to human body joints and vertices.
